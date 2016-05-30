@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a collection of modules to implement numerical methods in Racket. It is primarily written as a learning project, but may be of some use.
+This is a collection of modules to implement numerical methods in [Racket](https://racket-lang.org). It is primarily written as a learning project, but may be of some use.
 
 Methods are implemented in the NumeriKet subdirectory. Tests are in the tests subdirectory.
 
