@@ -17,4 +17,9 @@
       (let* [(x1 (- x0 (/ (p x0) (diff p x0))))]
         (newton-root-with-num-steps p x1 (- n 1)))))
 
+; function: (newton-root p x0)
+; Input:
+;       * p: the function of x whose root will be found
+;       * x0: the point at which the iteration will start
+; Output: the root of p closest to x0
 (define (newton-root p x0) (newton-root-with-num-steps p x0 10))
