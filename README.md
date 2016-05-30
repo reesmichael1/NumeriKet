@@ -30,5 +30,5 @@ Save as numeriket.rkt
 ```
 > racket numeriket.rkt
 2.0
-54.587232222803365
+54.5872
 ```
