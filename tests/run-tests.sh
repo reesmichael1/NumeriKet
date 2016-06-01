@@ -1,14 +1,20 @@
 #!/usr/bin/sh
 
+# The absolute, canonical ( no ".." ) path to this script
+# See http://unix.stackexchange.com/a/76604
+TEST_DIR=$(cd -P -- "$(dirname -- "$0")" && printf '%s\n' "$(pwd -P)")
+
+echo "$TEST_DIR"
+
 echo "diff-tests"
-racket diff-tests.rkt
+racket $TEST_DIR/diff-tests.rkt
 echo "euler-method-tests"
-racket ode-tests/euler-method-tests.rkt
+racket $TEST_DIR/ode-tests/euler-method-tests.rkt
 echo "newton-root-tests"
-racket newton-root-tests.rkt
+racket $TEST_DIR/newton-root-tests.rkt
 echo "newton-sqrt-tests"
-racket newton-sqrt-tests.rkt
+racket $TEST_DIR/newton-sqrt-tests.rkt
 echo "simpson-tests"
-racket integration-tests/simpson-tests.rkt
+racket $TEST_DIR/integration-tests/simpson-tests.rkt
 echo "util-tests"
-racket util-tests.rkt
+racket $TEST_DIR/util-tests.rkt
