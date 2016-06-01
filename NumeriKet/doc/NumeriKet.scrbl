@@ -48,6 +48,13 @@ are included.
     This is implemented through Newton's difference quotient with a step size of 1e-7.
 }
 
+@subsection{Integrals}
+@defproc[(simpson [f procedure?] [int list?]) number?]{
+    Estimate the value of integrating @racket[f] over the interval @racket[int]. 
+
+    This is implemented through Simpson's rule. By default, @racket[int] is partitioned into intervals of length 0.001 up to a maximum of 50000 intervals. If the length of @racket[int] (that is, @racket|{(- (second int) (first int)}|) is greater than 50, then larger intervals are used to partition the interval into 50000 intervals.
+}
+
 @subsection{Solving ODEs}
 @defproc[(euler-method [f procedure?] [inits list?] [tf number?]) number?]{
     Given @racket[(define t0 (first inits))] and @racket[(define x0 (second inits))], approximate the value of the solution of @racket[f] at @racket[tf], where @racket[(x t0)] is @racket[x0].
