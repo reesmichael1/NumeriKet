@@ -6,6 +6,8 @@ This is a collection of modules to implement numerical methods in [Racket](https
 
 Methods are implemented in the NumeriKet subdirectory. Tests are in the tests subdirectory.
 
+[Full API documentation](http://reesmichael1.com/math/NumeriKet.html) is also available.
+
 ## Installation
 
 From a terminal prompt, run
