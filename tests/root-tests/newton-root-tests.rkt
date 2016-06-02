@@ -4,7 +4,7 @@
 ; for finding roots of functions
 
 (require rackunit rackunit/text-ui racket/math
-         "test.rkt" "../NumeriKet/newton-root.rkt")
+         "../test.rkt" "../../NumeriKet/root/newton-root.rkt")
 
 (define newton-root-tests
     (test-suite

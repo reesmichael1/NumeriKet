@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require NumeriKet/newton-sqrt NumeriKet/newton-root 
+(require NumeriKet/root/newton-sqrt NumeriKet/root/newton-root 
          NumeriKet/diff/newton-diff NumeriKet/diff/diff
          NumeriKet/ode/euler-method NumeriKet/util 
          NumeriKet/integration/simpson NumeriKet/integration/integrate)

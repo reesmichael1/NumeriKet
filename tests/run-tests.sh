@@ -11,9 +11,9 @@ racket $TEST_DIR/ode-tests/euler-method-tests.rkt
 echo "newton-diff-tests"
 racket $TEST_DIR/diff-tests/newton-diff-tests.rkt
 echo "newton-root-tests"
-racket $TEST_DIR/newton-root-tests.rkt
+racket $TEST_DIR/root-tests/newton-root-tests.rkt
 echo "newton-sqrt-tests"
-racket $TEST_DIR/newton-sqrt-tests.rkt
+racket $TEST_DIR/root-tests/newton-sqrt-tests.rkt
 echo "simpson-tests"
 racket $TEST_DIR/integration-tests/simpson-tests.rkt
 echo "util-tests"

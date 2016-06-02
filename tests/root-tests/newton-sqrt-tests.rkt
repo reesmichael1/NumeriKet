@@ -4,7 +4,7 @@
 ; for finding square roots
 
 (require rackunit rackunit/text-ui racket/math
-         "test.rkt" "../NumeriKet/newton-sqrt.rkt")
+         "../test.rkt" "../../NumeriKet/root/newton-sqrt.rkt")
 
 (define newton-sqrt-tests
     (test-suite
