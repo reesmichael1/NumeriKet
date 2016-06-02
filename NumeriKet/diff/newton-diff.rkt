@@ -1,7 +1,7 @@
 #lang racket/base
 
-; Provide methods to approximate the derivative of a function at a point
-(provide diff)
+; Provide implementation of Newton's difference quotient for differentiation
+(provide newton-diff)
 
 ; function: (derivative-at-point f x h)
 ; Inputs: 
@@ -17,4 +17,4 @@
 ;       * f: the function that will be differentiated
 ;       * x: the point at which the derivative will be evaluated
 ; Output: the approximate value of f'(x)
-(define (diff f x) (derivative-at-point f x 0.0000001))
+(define (newton-diff f x) (derivative-at-point f x 0.0000001))
