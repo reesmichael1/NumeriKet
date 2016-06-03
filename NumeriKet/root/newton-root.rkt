@@ -4,7 +4,7 @@
 ; for finding roots of polynomials
 (provide newton-root)
 
-(require NumeriKet/diff)
+(require NumeriKet/diff/diff)
 
 ; function: (newton-root-with-num-steps p x0 n)
 ; Input:

@@ -24,7 +24,13 @@ A collection of Racket modules implementing numerical methods.
     "newton-diff"]) number?]{
     Estimate the value of the derivative of @racket[f], a function of @racket[x], at the point @racket[x0], using the method @racket[method]. 
 
-    By default, @racket[newton-diff] is used.
+    By default, @racket[five-point] is used.
+}
+
+@defproc[(five-point [f procedure?] [x0 number?]) number?]{
+    Estimate the value of the derivative of @racket[f], a function of @racket[x], at the point @racket[x0].
+
+    This is implemented through the five point method with a step size of 1e-7.
 }
 
 @defproc[(newton-diff [f procedure?] [x0 number?]) number?]{

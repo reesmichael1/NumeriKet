@@ -8,6 +8,8 @@ echo "$TEST_DIR"
 
 echo "euler-method-tests"
 racket $TEST_DIR/ode-tests/euler-method-tests.rkt
+echo "five-point tests"
+racket $TEST_DIR/diff-tests/five-point-tests.rkt
 echo "newton-diff-tests"
 racket $TEST_DIR/diff-tests/newton-diff-tests.rkt
 echo "newton-root-tests"
