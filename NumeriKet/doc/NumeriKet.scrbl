@@ -7,6 +7,13 @@
 A collection of Racket modules implementing numerical methods.
 
 @section{Implemented Functions}
+@subsection{Exponential Function}
+@defproc[(ex [x number?]) number?]{
+    Approximate the value of raising the constant e to the power @racket[x].
+
+    This is implemented through the algorithm described in this @hyperlink["http://math.stackexchange.com/a/55904" "Math Stack Exchange post"].
+}
+
 @subsection{Root Finding}
 @defproc[(newton-root [f procedure?] [x0 number?]) number?]{
     Approximate the root of @racket[f] closest to @racket[x0]. 
