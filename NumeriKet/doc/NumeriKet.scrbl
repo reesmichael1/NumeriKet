@@ -44,6 +44,11 @@ A collection of Racket modules implementing numerical methods.
     This is implemented through Simpson's rule. By default, @racket[int] is partitioned into intervals of length 0.001 up to a maximum of 50000 intervals. If the length of @racket[int] is greater than 50, then larger intervals are used to partition the interval into 50000 intervals.
 }
 @subsection{Root Finding}
+@defproc[(square-root [x number?]) number?]{
+    Approximate the square root of @racket[x].
+
+    This is implemented through @racket[newton-root] by starting at the integer whose perfect square is the smallest perfect square less than or equal to @racket[x].
+}
 @defproc[(newton-root [f procedure?] [x0 number?]) number?]{
     Approximate the root of @racket[f] closest to @racket[x0]. 
 
@@ -52,7 +57,7 @@ A collection of Racket modules implementing numerical methods.
 @defproc[(newton-sqrt [s number?] [x0 number?]) number?]{
     Approximate the square root of @racket[s] by starting at @racket[x0]. 
 
-    This is implemented through a specific case of @racket[newton-root] and uses ten iterations.
+    This is implemented through a specific case of @racket[newton-root] and uses one hundred iterations.
 }
 @subsection{Solving ODEs}
 @defproc[(euler-method [f procedure?] [inits list?] [tf number?]) number?]{

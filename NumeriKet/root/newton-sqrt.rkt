@@ -20,4 +20,4 @@
 ;       * x0: the initial value to use in the iteration
 ; Output: the approximate square root of s
 (define (newton-sqrt s x0) 
-     (newton-sqrt-with-num-steps s x0 10))
+     (newton-sqrt-with-num-steps s x0 100))
