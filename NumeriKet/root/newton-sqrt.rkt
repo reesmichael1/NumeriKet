@@ -18,6 +18,7 @@
 ; Inputs:
 ;       * s: the square whose root will be calculated
 ;       * x0: the initial value to use in the iteration
+;       * n: an optional argument specifying the numer of iterations
 ; Output: the approximate square root of s
-(define (newton-sqrt s x0) 
-     (newton-sqrt-with-num-steps s x0 100))
+(define newton-sqrt (lambda (s x0 #:n [n 100]) 
+     (newton-sqrt-with-num-steps s x0 n)))

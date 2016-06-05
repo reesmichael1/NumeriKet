@@ -17,4 +17,5 @@
 ;       * f: the function that will be differentiated
 ;       * x: the point at which the derivative will be evaluated
 ; Output: the approximate value of f'(x)
-(define (newton-diff f x) (derivative-at-point f x 0.0000001))
+(define newton-diff 
+  (lambda (f x #:h [h 1e-8]) (derivative-at-point f x h)))

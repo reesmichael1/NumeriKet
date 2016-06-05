@@ -21,5 +21,7 @@
 ; Input:
 ;       * p: the function of x whose root will be found
 ;       * x0: the point at which the iteration will start
+;       * n: an optional argument specifying the number of iterations
 ; Output: the root of p closest to x0
-(define (newton-root p x0) (newton-root-with-num-steps p x0 10))
+(define newton-root 
+  (lambda (p x0 #:n [n 100]) (newton-root-with-num-steps p x0 n)))

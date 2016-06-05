@@ -6,7 +6,7 @@
 ; for solving ordinary differential equations
 (provide euler-method)
 
-(define step-size 0.0001)
+(define step-size 1e-4)
 
 ; function: (euler-method-with-step-size f inits tf h)
 ; Inputs:
@@ -29,14 +29,16 @@
 ;       * inits: a list of the form '(t0 x0), where x(t0) = x0
 ;       * tf: the time to which the iteration should be processed
 ; Output: the approximate value of x(tf) in full "precision"
-(define (euler-method-without-rounding f inits tf) 
-    (euler-method-with-step-size f inits tf step-size))
+(define (euler-method-without-rounding f inits tf h) 
+    (euler-method-with-step-size f inits tf h))
 
 ; function (euler-method f inits tf)
 ; Inputs:
 ;       * f: flow of x in time (that is, x'(t) = f(t, x(t)))
 ;       * inits: a list of the form '(t0 x0), where x(t0) = x0
 ;       * tf: the time to which the iteration should be processed
+;       * h: an optional argument to set the step size
 ; Output: the approximate value of x(tf), rounded to four decimal places
-(define (euler-method f inits tf)
-    (round-to-precision (euler-method-without-rounding f inits tf) 4))
+(define euler-method 
+  (lambda (f inits tf #:h [h step-size])
+    (round-to-precision (euler-method-without-rounding f inits tf h) 4)))
