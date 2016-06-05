@@ -1,11 +1,10 @@
 #lang racket/base
 
+(require "./e-const.rkt")
+
 ; Provide implementation of exponential function
 ; Implemented through algorithm from http://math.stackexchange.com/a/55904
 (provide ex)
-
-; The value of e to 50 places
-(define e-const 2.71828182845904523536028747135266249775724709369995)
 
 ; function: ex-frac
 ; Inputs: 

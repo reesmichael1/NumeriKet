@@ -59,9 +59,10 @@ A collection of Racket modules implementing numerical methods.
         (newton-diff (lambda (x) (sin x)) (/ pi 2))]
 }
 
-@subsection{Exponential Function}
+@subsection{Exponential Function and Natural Logarithm}
 
 @(define ex-eval (make-base-eval))
+@(define ln-eval (make-base-eval))
 
 @defproc[(ex [x number?]) number?]{
     Approximate the value of raising the constant e to the power @racket[x].
@@ -75,6 +76,21 @@ A collection of Racket modules implementing numerical methods.
         (ex 1)
         (ex pi)
         (ex 103.17)]
+}
+
+@defproc[(ln [x number?]) number?]{
+    Approximate the natural logarithm of @racket[x].
+
+    This is implemented through solving the equation e^y - x = 0 for y with @racket[newton-root]. The initial guess is the number of times that @racket[e] needs to be divided into @racket[x] to produce a number smaller than 1.
+
+    @interaction-eval[#:eval ln-eval (require NumeriKet/ex/ln 
+        NumeriKet/ex/ex math/base)]
+    @examples[
+        #:eval ln-eval
+        (ln 1)
+        (ln euler.0)
+        (ln 1038.87913)
+        (ex (ln 1038.87913))]
 }
 
 @(define integrate-eval (make-base-eval))

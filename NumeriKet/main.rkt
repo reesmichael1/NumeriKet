@@ -4,7 +4,7 @@
          NumeriKet/diff/newton-diff NumeriKet/diff/five-point
          NumeriKet/diff/diff NumeriKet/ode/euler-method NumeriKet/util 
          NumeriKet/integration/simpson NumeriKet/integration/integrate
-         NumeriKet/ex/ex NumeriKet/root/square-root)
+         NumeriKet/ex/ex NumeriKet/ex/ln NumeriKet/root/square-root)
 
 (provide newton-sqrt newton-root newton-diff diff five-point euler-method 
-         round-to-precision simpson integrate ex square-root)
+         round-to-precision simpson integrate ex ln square-root)

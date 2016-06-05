@@ -10,8 +10,10 @@ echo "euler-method-tests"
 racket $TEST_DIR/ode-tests/euler-method-tests.rkt
 echo "ex-tests"
 racket $TEST_DIR/ex-tests/ex-tests.rkt
-echo "five-point tests"
+echo "five-point-tests"
 racket $TEST_DIR/diff-tests/five-point-tests.rkt
+echo "ln-tests"
+racket $TEST_DIR/ex-tests/ln-tests.rkt
 echo "newton-diff-tests"
 racket $TEST_DIR/diff-tests/newton-diff-tests.rkt
 echo "newton-root-tests"
