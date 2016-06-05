@@ -3,7 +3,7 @@
 ; Provide implementation of square root calculationg
 (provide square-root closest-integer-sqrt)
 
-(require NumeriKet/root/newton-sqrt)
+(require NumeriKet/root/newton-sqrt NumeriKet/root/ln-sqrt)
 
 ; function: closest-integer-sqrt
 ; Inputs:
@@ -23,7 +23,8 @@
 ; Inputs:
 ;       * x: the number whose square root will be calculated
 ; Output: the square root of x
-(define (square-root x)
+(define square-root (lambda (x #:method [method "newton-sqrt"])
   (if (> 0 x) (error "sqrt: input must be non-negative")
     (if (= 0 x) 0
-      (newton-sqrt x (closest-integer-sqrt x 0 x)))))
+      (if (or (> x 1e30) (eq? method "ln-sqrt")) (ln-sqrt x)
+        (newton-sqrt x (closest-integer-sqrt x 0 (ceiling x))))))))

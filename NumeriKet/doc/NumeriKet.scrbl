@@ -128,14 +128,16 @@ A collection of Racket modules implementing numerical methods.
 }
 
 @(define square-root-eval (make-base-eval))
+@(define ln-sqrt-eval (make-base-eval))
 @(define newton-root-eval (make-base-eval))
 @(define newton-sqrt-eval (make-base-eval))
 
 @subsection{Root Finding}
-@defproc[(square-root [x number?]) number?]{
+@defproc[(square-root [x number?] [#:method method string? "newton-sqrt"])
+    number?]{
     Approximate the square root of @racket[x].
 
-    This is implemented through @racket[newton-root] by starting at the integer whose perfect square is the smallest perfect square less than or equal to @racket[x].
+    By default, for @racket[x] less than @racket[1e28], this is implemented through @racket[newton-sqrt] by starting at the integer whose perfect square is the smallest perfect square less than or equal to @racket[x]. For @racket[x] greater than or equal to @racket[1e28], this is implemented through @racket[ln-sqrt] (due to performance).
 
     @interaction-eval[#:eval square-root-eval 
         (require NumeriKet/root/square-root racket/math)]
@@ -144,6 +146,10 @@ A collection of Racket modules implementing numerical methods.
         (square-root 100)
         (square-root pi)
         (square-root 3827164936632198.1837642)]
+}
+
+@defproc[(ln-sqrt [x number?]) number?]{
+    Approximate the square root of @racket[x] by evaluating the expession e^(0.5 ln(x)).
 }
 
 @defproc[(newton-root [f procedure?] [x0 number?] [#:n n number? 100])

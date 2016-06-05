@@ -12,6 +12,8 @@ echo "ex-tests"
 racket $TEST_DIR/ex-tests/ex-tests.rkt
 echo "five-point-tests"
 racket $TEST_DIR/diff-tests/five-point-tests.rkt
+echo "ln-sqrt-tests"
+racket $TEST_DIR/root-tests/ln-sqrt-tests.rkt
 echo "ln-tests"
 racket $TEST_DIR/ex-tests/ln-tests.rkt
 echo "newton-diff-tests"
@@ -22,7 +24,7 @@ echo "newton-sqrt-tests"
 racket $TEST_DIR/root-tests/newton-sqrt-tests.rkt
 echo "simpson-tests"
 racket $TEST_DIR/integration-tests/simpson-tests.rkt
-echo "sqrt-tests"
+echo "square-root-tests"
 racket $TEST_DIR/root-tests/square-root-tests.rkt
 echo "util-tests"
 racket $TEST_DIR/util-tests.rkt
