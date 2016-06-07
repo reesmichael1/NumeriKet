@@ -165,7 +165,7 @@ A collection of Racket modules implementing numerical methods.
 }
 
 @defproc[(norm [v list?]) number?]{
-    Calculate the Euclidean norm of a given vector @racket[v] in R^n.
+    Calculate the @hyperlink["https://en.wikipedia.org/wiki/Euclidean_distance" "Euclidean norm"] of a given vector @racket[v] in R^n.
     
     @racket[v] can either be a list of single element lists (a column vector) or a list of numbers (a row vector).
     
