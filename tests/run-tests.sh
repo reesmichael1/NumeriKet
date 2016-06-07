@@ -26,6 +26,8 @@ echo "newton-root-tests"
 racket $TEST_DIR/root-tests/newton-root-tests.rkt
 echo "newton-sqrt-tests"
 racket $TEST_DIR/root-tests/newton-sqrt-tests.rkt
+echo "norm-tests"
+racket $TEST_DIR/linear-algebra-tests/norm-tests.rkt
 echo "scalar-multiply-tests"
 racket $TEST_DIR/linear-algebra-tests/scalar-multiply-tests.rkt
 echo "simpson-tests"

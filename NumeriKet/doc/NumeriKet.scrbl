@@ -129,6 +129,7 @@ A collection of Racket modules implementing numerical methods.
 
 @(define dot-product-eval (make-base-eval))
 @(define matrix-multiply-eval (make-base-eval))
+@(define norm-eval (make-base-eval))
 @(define scalar-multiply-eval (make-base-eval))
 
 @subsection{Linear Algebra}
@@ -161,6 +162,20 @@ A collection of Racket modules implementing numerical methods.
                            (-9 -10 -11 -12) (-13 -14 -15 -16))
                          '((16 15 14 13) (12 11 10 9)
                            (-8 -7 -6 -5) (-4 -3 -2 -1)))]
+}
+
+@defproc[(norm [v list?]) number?]{
+    Calculate the Euclidean norm of a given vector @racket[v] in R^n.
+    
+    @racket[v] can either be a list of single element lists (a column vector) or a list of numbers (a row vector).
+    
+    @interaction-eval[#:eval norm-eval 
+        (require NumeriKet/linear-algebra/norm)]
+    @examples[
+        #:eval norm-eval
+        (norm '(1 2 3))
+        (norm '((1) (2) (3)))
+        (norm '(-1 2 -3 4 -5))]
 }
 
 @defproc[(scalar-multiply [a number?] [A list?]) list?]{
