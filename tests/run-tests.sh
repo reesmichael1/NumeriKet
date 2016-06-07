@@ -16,6 +16,8 @@ echo "ln-sqrt-tests"
 racket $TEST_DIR/root-tests/ln-sqrt-tests.rkt
 echo "ln-tests"
 racket $TEST_DIR/ex-tests/ln-tests.rkt
+echo "matrix-multiply-tests"
+racket $TEST_DIR/linear-algebra-tests/matrix-multiply-tests.rkt
 echo "newton-diff-tests"
 racket $TEST_DIR/diff-tests/newton-diff-tests.rkt
 echo "newton-root-tests"
