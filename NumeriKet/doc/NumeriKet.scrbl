@@ -129,6 +129,7 @@ A collection of Racket modules implementing numerical methods.
 
 @(define dot-product-eval (make-base-eval))
 @(define matrix-multiply-eval (make-base-eval))
+@(define scalar-multiply-eval (make-base-eval))
 
 @subsection{Linear Algebra}
 
@@ -160,6 +161,19 @@ A collection of Racket modules implementing numerical methods.
                            (-9 -10 -11 -12) (-13 -14 -15 -16))
                          '((16 15 14 13) (12 11 10 9)
                            (-8 -7 -6 -5) (-4 -3 -2 -1)))]
+}
+
+@defproc[(scalar-multiply [a number?] [A list?]) list?]{
+    Multiply a matrix @racket[A] by a scalar @racket[a]. 
+
+    @racket[A] should be a list of lists, where each sub-list corresponds to a matrix row.
+
+    @interaction-eval[#:eval scalar-multiply-eval
+        (require NumeriKet/linear-algebra/scalar-multiply)]
+    @examples[
+        #:eval scalar-multiply-eval
+        (scalar-multiply 2 '((1 0) (0 1)))
+        (scalar-multiply -13 '((3.8 1 -29) (1 2 3) (-3 -2 1)))]
 }
 
 @(define square-root-eval (make-base-eval))
