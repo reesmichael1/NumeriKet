@@ -20,17 +20,10 @@ raco link NumeriKet
 ## Usage
 
 ```
-#lang racket/base
-
-(require NumeriKet)
-
-(newton-sqrt 4 4)
-(euler-method (lambda (t x) x) '(0 1) 4) 
+$ racket
+Welcome to Racket v6.5
+> (require NumeriKet)
+> (ex (ln 3872.295))
+3872.2950000000033
 ```
-Save as numeriket.rkt
-
-```
-> racket numeriket.rkt
-2.0
-54.5872
-```
+Consult the [API documentation](http://reesmichael1.com/math/NumeriKet.html) for a full list of implemented methods.
