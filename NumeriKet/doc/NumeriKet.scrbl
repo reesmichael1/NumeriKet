@@ -127,9 +127,24 @@ A collection of Racket modules implementing numerical methods.
                                     (* 4 (expt x 3)))) '(0 10))]
 }
 
+@(define dot-product-eval (make-base-eval))
 @(define matrix-multiply-eval (make-base-eval))
 
 @subsection{Linear Algebra}
+
+@defproc[(dot-product [v1 list?] [v2 list?]) list?]{
+    Calculate the @hyperlink["https://en.wikipedia.org/wiki/Dot_product" "dot product"] of the vectors @racket[v1] and @racket[v2].
+
+    @racket[v1] and @racket[v2] should themselves be lists.
+
+    @interaction-eval[#:eval dot-product-eval 
+        (require NumeriKet/linear-algebra/dot-product)]
+    @examples[
+        #:eval dot-product-eval
+        (dot-product '(1) '(2))
+        (dot-product '(1 2 3) '(4 5 6))
+        (dot-product '(1 -1) '(1 1))]
+}
 
 @defproc[(matrix-multiply [A list?] [B list?]) list?]{
     Multiply two matrices @racket[A] and @racket[B].

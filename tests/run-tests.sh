@@ -6,6 +6,8 @@ TEST_DIR=$(cd -P -- "$(dirname -- "$0")" && printf '%s\n' "$(pwd -P)")
 
 echo "$TEST_DIR"
 
+echo "dot-product-tests"
+racket $TEST_DIR/linear-algebra-tests/dot-product-tests.rkt
 echo "euler-method-tests"
 racket $TEST_DIR/ode-tests/euler-method-tests.rkt
 echo "ex-tests"

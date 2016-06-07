@@ -2,7 +2,7 @@
 
 ; Test implementation of matrix multiplication and helper functions
 
-(require rackunit rackunit/text-ui "../test.rkt"
+(require rackunit rackunit/text-ui 
          "../../NumeriKet/linear-algebra/matrix-multiply.rkt")
 
 (define matrix-multiply-tests
@@ -18,13 +18,6 @@
                                      (-8 -7 -6 -5) (-4 -3 -2 -1)))
                   '((0 4 8 12) (64 68 72 76) 
                     (-128 -132 -136 -140) (-192 -196 -200 -204)))))
-
-(define multiply-row-column-tests
-  (test-suite
-    "multiply-row-column-tests"
-    (check-equal? (multiply-row-column '(1 2 3) '(4 5 6)) 32)
-    (check-equal? (multiply-row-column '(3 5 1) '(5 3 5)) 35)
-    (check-equal? (multiply-row-column '(8 -3 1 0) '(14 -1 -8 7)) 107)))
 
 (define get-row-tests
   (test-suite
@@ -43,6 +36,5 @@
     (check-equal? (get-column 2 '((1 2 3) (4 5 6))) '(3 6))))
 
 (run-tests matrix-multiply-tests)
-(run-tests multiply-row-column-tests)
 (run-tests get-row-tests)
 (run-tests get-column-tests)

@@ -5,8 +5,9 @@
          NumeriKet/diff/diff NumeriKet/ode/euler-method NumeriKet/util 
          NumeriKet/integration/simpson NumeriKet/integration/integrate
          NumeriKet/ex/ex NumeriKet/ex/ln NumeriKet/root/square-root
-         NumeriKet/root/ln-sqrt NumeriKet/linear-algebra/matrix-multiply)
+         NumeriKet/root/ln-sqrt NumeriKet/linear-algebra/matrix-multiply
+         NumeriKet/linear-algebra/dot-product)
 
 (provide newton-sqrt newton-root newton-diff diff five-point euler-method 
          round-to-precision simpson integrate ex ln square-root ln-sqrt
-         matrix-multiply)
+         matrix-multiply dot-product)

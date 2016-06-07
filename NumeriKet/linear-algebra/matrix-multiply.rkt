@@ -1,10 +1,10 @@
 #lang racket/base
 
 ; for range
-(require racket/list)
+(require racket/list NumeriKet/linear-algebra/dot-product)
 
 ; Provide implementation of matrix multiplication
-(provide matrix-multiply multiply-row-column get-row get-column)
+(provide matrix-multiply get-row get-column)
 
 ; function get-row
 ; Inputs:
@@ -22,14 +22,6 @@
   (lambda (i matrix) 
     (map (lambda (x) (list-ref x i)) matrix) ))
 
-; function multiply-row-column
-; Inputs: 
-;       * row: a row of a matrix
-;       * column: a column of a matrix
-; Output: the sum of multiplying each element in the row and the column
-(define (multiply-row-column row column)
-  (foldl (lambda (a b c) (+ (* a b) c)) 0 row column))
-
 ; function: matrix-multiply
 ; Inputs:
 ;       A: the matrix on the left hand side of the product
@@ -40,6 +32,6 @@
          (columns (length (car B)))]
     (map (lambda (row) 
       (map (lambda (column) 
-        (multiply-row-column (get-row row A) 
+        (dot-product (get-row row A) 
           (get-column column B))) 
           (range columns))) (range rows))))
