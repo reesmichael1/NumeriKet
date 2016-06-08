@@ -28,6 +28,8 @@ echo "newton-sqrt-tests"
 racket $TEST_DIR/root-tests/newton-sqrt-tests.rkt
 echo "norm-tests"
 racket $TEST_DIR/linear-algebra-tests/norm-tests.rkt
+echo "power-iteration-tests"
+racket $TEST_DIR/linear-algebra-tests/power-iteration-tests.rkt
 echo "scalar-multiply-tests"
 racket $TEST_DIR/linear-algebra-tests/scalar-multiply-tests.rkt
 echo "simpson-tests"
