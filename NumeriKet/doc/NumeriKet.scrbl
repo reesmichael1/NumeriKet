@@ -160,6 +160,24 @@ A collection of Racket modules implementing numerical methods.
         (norm '(-1 2 -3 4 -5))]
 }
 
+@(define power-iteration-eval (make-base-eval))
+
+@subsubsection{Eigenvalues and Eigenvectors}
+
+@defproc[(power-iteration [A list?] [#:n n integer? 1000]) number?]{
+    Approximate the dominant eigenvalue of a matrix @racket[A]. @racket[A] should be given as a list of lists, where each sub-list corresponds to a row of the matrix. If there are no dominant eigenvalues, @racket[0] is returned.
+
+    This is implemented through the @hyperlink["https://en.wikipedia.org/wiki/Power_iteration" "power iteration"] method with @racket[n] iterations.
+
+    @interaction-eval[#:eval power-iteration-eval 
+        (require NumeriKet/linear-algebra/power-iteration)]
+    @examples[
+        #:eval power-iteration-eval
+        (power-iteration '((1 0) (0 1)))
+        (power-iteration '((1 2 3) (4 5 6) (7 8 9)))
+        (power-iteration '((1 0) (0 -1)))]
+}
+
 @(define matrix-add-eval (make-base-eval))
 @(define matrix-multiply-eval (make-base-eval))
 @(define scalar-multiply-eval (make-base-eval))
