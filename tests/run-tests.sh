@@ -14,10 +14,14 @@ echo "ex-tests"
 racket $TEST_DIR/ex-tests/ex-tests.rkt
 echo "five-point-tests"
 racket $TEST_DIR/diff-tests/five-point-tests.rkt
+echo "jacobi-tests"
+racket $TEST_DIR/linear-algebra-tests/jacobi-tests.rkt
 echo "ln-sqrt-tests"
 racket $TEST_DIR/root-tests/ln-sqrt-tests.rkt
 echo "ln-tests"
 racket $TEST_DIR/ex-tests/ln-tests.rkt
+echo "matrix-add-tests"
+racket $TEST_DIR/linear-algebra-tests/matrix-add-tests.rkt
 echo "matrix-multiply-tests"
 racket $TEST_DIR/linear-algebra-tests/matrix-multiply-tests.rkt
 echo "newton-diff-tests"

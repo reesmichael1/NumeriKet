@@ -128,9 +128,7 @@ A collection of Racket modules implementing numerical methods.
 }
 
 @(define dot-product-eval (make-base-eval))
-@(define matrix-multiply-eval (make-base-eval))
 @(define norm-eval (make-base-eval))
-@(define scalar-multiply-eval (make-base-eval))
 
 @subsection{Linear Algebra}
 
@@ -146,6 +144,40 @@ A collection of Racket modules implementing numerical methods.
         (dot-product '(1) '(2))
         (dot-product '(1 2 3) '(4 5 6))
         (dot-product '(1 -1) '(1 1))]
+}
+
+@defproc[(norm [v list?]) number?]{
+    Calculate the @hyperlink["https://en.wikipedia.org/wiki/Euclidean_distance" "Euclidean norm"] of a given vector @racket[v] in R^n.
+    
+    @racket[v] can either be a list of single element lists (a column vector) or a list of numbers (a row vector).
+    
+    @interaction-eval[#:eval norm-eval 
+        (require NumeriKet/linear-algebra/norm)]
+    @examples[
+        #:eval norm-eval
+        (norm '(1 2 3))
+        (norm '((1) (2) (3)))
+        (norm '(-1 2 -3 4 -5))]
+}
+
+@(define matrix-add-eval (make-base-eval))
+@(define matrix-multiply-eval (make-base-eval))
+@(define scalar-multiply-eval (make-base-eval))
+
+@subsubsection{Matrix Operations}
+
+@defproc[(matrix-add [A list?] [B list?]) list?]{
+    Add two matrices @racket[A] and @racket[B].
+
+    @racket[A] and @racket[B] should be lists of lists, where each sub-list corresponds to a matrix row.
+
+    @interaction-eval[#:eval matrix-add-eval 
+        (require NumeriKet/linear-algebra/matrix-add)]
+    @examples[
+        #:eval matrix-add-eval
+        (matrix-add '((1 0) (0 1)) '((1 0) (0 1)))
+        (matrix-add '((1 2 3) (3 2 1)) '((0 0 0) (0 0 0)))
+        (matrix-add '((1 2 3) (3 2 1)) '((-1 -2 -3) (-3 -2 -1)))]
 }
 
 @defproc[(matrix-multiply [A list?] [B list?]) list?]{
@@ -164,20 +196,6 @@ A collection of Racket modules implementing numerical methods.
                            (-8 -7 -6 -5) (-4 -3 -2 -1)))]
 }
 
-@defproc[(norm [v list?]) number?]{
-    Calculate the @hyperlink["https://en.wikipedia.org/wiki/Euclidean_distance" "Euclidean norm"] of a given vector @racket[v] in R^n.
-    
-    @racket[v] can either be a list of single element lists (a column vector) or a list of numbers (a row vector).
-    
-    @interaction-eval[#:eval norm-eval 
-        (require NumeriKet/linear-algebra/norm)]
-    @examples[
-        #:eval norm-eval
-        (norm '(1 2 3))
-        (norm '((1) (2) (3)))
-        (norm '(-1 2 -3 4 -5))]
-}
-
 @defproc[(scalar-multiply [a number?] [A list?]) list?]{
     Multiply a matrix @racket[A] by a scalar @racket[a]. 
 
@@ -191,22 +209,24 @@ A collection of Racket modules implementing numerical methods.
         (scalar-multiply -13 '((3.8 1 -29) (1 2 3) (-3 -2 1)))]
 }
 
-@(define power-iteration-eval (make-base-eval))
+@(define jacobi-eval (make-base-eval))
 
-@subsubsection{Eigenvalues and Eigenvectors}
+@subsubsection{Solving Linear Systems}
 
-@defproc[(power-iteration [A list?] [#:n n integer? 1000]) number?]{
-    Approximate the dominant eigenvalue of a matrix @racket[A]. @racket[A] should be given as a list of lists, where each sub-list corresponds to a row of the matrix. If there are no dominant eigenvalues, @racket[0] is returned.
+@defproc[(jacobi [A list?] [b list?] [#:n n number? 1000]) list?]{
+    Solve the linear system @racket[A]@racket[x] = @racket[b] for some unknown vector @racket[x]. 
 
-    This is implemented through the @hyperlink["https://en.wikipedia.org/wiki/Power_iteration" "power iteration"] method.
+    @racket[A] should be a list of lists, where each sub-list corresponds to a matrix row, and @racket[b] should be a list of single element lists, where each sub-list contains an element of the vector.
 
-    @interaction-eval[#:eval power-iteration-eval 
-        (require NumeriKet/linear-algebra/power-iteration)]
+    This is implemented through the @hyperlink["https://en.wikipedia.org/wiki/Jacobi_method" "Jacobi method"] with @racket[n] iterations. Note that, for the vector @racket[x] to necessarily converge, @racket[A] must be either strictly diagonally dominant or diagonally dominant and irreducible.
+
+    @interaction-eval[#:eval jacobi-eval 
+        (require NumeriKet/linear-algebra/jacobi)]
     @examples[
-        #:eval power-iteration-eval
-        (power-iteration '((1 0) (0 1)))
-        (power-iteration '((1 2 3) (4 5 6) (7 8 9)))
-        (power-iteration '((1 0) (0 -1)))]
+        #:eval jacobi-eval
+        (jacobi '((1 0) (0 1)) '((2) (0.5)))
+        (jacobi '((7 -2 1 2) (2 8 3 1) (-1 0 5 2) (0 2 -1 4)) 
+          '((3) (-2) (5) (4)))]
 }
 
 @(define square-root-eval (make-base-eval))

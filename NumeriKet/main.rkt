@@ -8,8 +8,10 @@
          NumeriKet/root/ln-sqrt NumeriKet/linear-algebra/matrix-multiply
          NumeriKet/linear-algebra/dot-product NumeriKet/linear-algebra/norm
          NumeriKet/linear-algebra/scalar-multiply 
+         NumeriKet/linear-algebra/matrix-add NumeriKet/linear-algebra/jacobi
          NumeriKet/linear-algebra/power-iteration)
 
 (provide newton-sqrt newton-root newton-diff diff five-point euler-method 
          round-to-precision simpson integrate ex ln square-root ln-sqrt
-         matrix-multiply dot-product scalar-multiply norm power-iteration)
+         matrix-multiply dot-product scalar-multiply norm power-iteration
+         matrix-add jacobi)
