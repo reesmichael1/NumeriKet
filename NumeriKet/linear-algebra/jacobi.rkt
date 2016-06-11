@@ -6,7 +6,7 @@
          NumeriKet/linear-algebra/power-iteration)
 
 ; Provide implementation of Jacobi method for solving linear systems
-(provide jacobi check-for-convergence)
+(provide jacobi)
 
 ; function: (get-starting-vector n)
 ; Inputs:
@@ -73,10 +73,10 @@
 ; Output: a boolean, #t if Jacobi iteraion will converge, and #f otherwise
 (define (check-for-convergence A)
   (let* [(row-checks 
-           (map (lambda (n) (> (list-ref (list-ref A n) n) 
+           (map (lambda (n) (> (abs (list-ref (list-ref A n) n))
                                (- (foldl (lambda (x y) (+ (abs x) (abs y))) 
                                          0 (list-ref A n)) 
-                                  (list-ref (list-ref A n) n)))) 
+                                  (abs (list-ref (list-ref A n) n)))))
                 (range (length A))))]
     (= (length (remove #f row-checks)) (length row-checks))))
 
