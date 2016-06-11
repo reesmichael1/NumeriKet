@@ -2,10 +2,11 @@
 
 (require racket/list NumeriKet/linear-algebra/matrix-multiply
          NumeriKet/linear-algebra/scalar-multiply
-         NumeriKet/linear-algebra/matrix-add)
+         NumeriKet/linear-algebra/matrix-add 
+         NumeriKet/linear-algebra/power-iteration)
 
 ; Provide implementation of Jacobi method for solving linear systems
-(provide jacobi)
+(provide jacobi check-for-convergence)
 
 ; function: (get-starting-vector n)
 ; Inputs:
@@ -66,12 +67,28 @@
                         (matrix-multiply R x)))))]
       (jacobi-with-iterations A b xNext (- n 1))))) 
 
+; function (check-for-convergence A)
+; Inputs:
+;       * A: a square matrix
+; Output: a boolean, #t if Jacobi iteraion will converge, and #f otherwise
+(define (check-for-convergence A)
+  (let* [(row-checks 
+           (map (lambda (n) (> (list-ref (list-ref A n) n) 
+                               (- (foldl (lambda (x y) (+ (abs x) (abs y))) 
+                                         0 (list-ref A n)) 
+                                  (list-ref (list-ref A n) n)))) 
+                (range (length A))))]
+    (= (length (remove #f row-checks)) (length row-checks))))
+
 ; function: (jacobi A b)
 ; Inputs:
 ;       * A: a square matrix describing the system
 ;       * b: the value of Ax, where x is the unkown
 ;       * n: an optional argument specifying the number of iterations to use
+;       * warn-converge: boolean to show warning on non-converging matrix
 ; Output: x, the unknown vector such that Ax = b
-(define (jacobi A b #:n [n 1000]) 
-  (map (lambda (x) (list (exact->inexact (first x)))) 
-       (jacobi-with-iterations A b (get-starting-vector (length A)) n)))
+(define (jacobi A b #:n [n 1000] #:warn-converge [warn-converge #t]) 
+  (if (and warn-converge (not (check-for-convergence A)))
+    (error "jacobi: matrix will (probably) not converge")
+    (map (lambda (x) (list (exact->inexact (first x)))) 
+         (jacobi-with-iterations A b (get-starting-vector (length A)) n))))

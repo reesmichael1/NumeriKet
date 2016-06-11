@@ -231,12 +231,15 @@ A collection of Racket modules implementing numerical methods.
 
 @subsubsection{Solving Linear Systems}
 
-@defproc[(jacobi [A list?] [b list?] [#:n n number? 1000]) list?]{
+@defproc[(jacobi [A list?] [b list?] [#:n n number? 1000] 
+        [#:warn-converge warn-converge boolean? #t]) list?]{
     Solve the linear system @racket[A]@racket[x] = @racket[b] for some unknown vector @racket[x]. 
 
     @racket[A] should be a list of lists, where each sub-list corresponds to a matrix row, and @racket[b] should be a list of single element lists, where each sub-list contains an element of the vector.
 
-    This is implemented through the @hyperlink["https://en.wikipedia.org/wiki/Jacobi_method" "Jacobi method"] with @racket[n] iterations. Note that, for the vector @racket[x] to necessarily converge, @racket[A] must be either strictly diagonally dominant or diagonally dominant and irreducible.
+    This is implemented through the @hyperlink["https://en.wikipedia.org/wiki/Jacobi_method" "Jacobi method"] with @racket[n] iterations. Note that, for the vector @racket[x] to necessarily converge, @racket[A] must be either strictly diagonally dominant or diagonally dominant and irreducible. If @racket[A] does not meet these conditions and @racket[warn-converge] is @racket[#t], an error will be returned.
+
+    @(italic "Note: technically, the current check for convergence may return some false positives. Once a better method for finding the dominant eigenvalue has been implemented, this should be improved.")
 
     @interaction-eval[#:eval jacobi-eval 
         (require NumeriKet/linear-algebra/jacobi)]
@@ -244,7 +247,8 @@ A collection of Racket modules implementing numerical methods.
         #:eval jacobi-eval
         (jacobi '((1 0) (0 1)) '((2) (0.5)))
         (jacobi '((7 -2 1 2) (2 8 3 1) (-1 0 5 2) (0 2 -1 4)) 
-          '((3) (-2) (5) (4)))]
+          '((3) (-2) (5) (4)))
+        (jacobi '((1 3) (10 10)) '((1) (1)))]
 }
 
 @(define square-root-eval (make-base-eval))
