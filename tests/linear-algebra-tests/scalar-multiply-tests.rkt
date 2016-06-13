@@ -1,7 +1,7 @@
 #lang racket/base
 
 (require rackunit rackunit/text-ui 
-         "../../NumeriKet/linear-algebra/scalar-multiply.rkt")
+         "../../NumeriKet/linear-algebra/matrix-operations.rkt")
 
 (define scalar-multiply-tests
   (test-suite

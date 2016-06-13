@@ -4,7 +4,7 @@
 
 (require rackunit rackunit/text-ui "../../NumeriKet/util.rkt"
          "../../NumeriKet/linear-algebra/jacobi.rkt"
-         "../../NumeriKet/linear-algebra/matrix-multiply.rkt")
+         "../../NumeriKet/linear-algebra/matrix-operations.rkt")
 
 (define jacobi-tests
   (test-suite

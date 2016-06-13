@@ -190,7 +190,7 @@ A collection of Racket modules implementing numerical methods.
     @racket[A] and @racket[B] should be lists of lists, where each sub-list corresponds to a matrix row.
 
     @interaction-eval[#:eval matrix-add-eval 
-        (require NumeriKet/linear-algebra/matrix-add)]
+        (require NumeriKet/linear-algebra/matrix-operations)]
     @examples[
         #:eval matrix-add-eval
         (matrix-add '((1 0) (0 1)) '((1 0) (0 1)))
@@ -204,7 +204,7 @@ A collection of Racket modules implementing numerical methods.
     @racket[A] and @racket[B] should be lists of lists, where each sub-list corresponds to a matrix row.
 
     @interaction-eval[#:eval matrix-multiply-eval
-        (require NumeriKet/linear-algebra/matrix-multiply)]
+        (require NumeriKet/linear-algebra/matrix-operations)]
     @examples[
         #:eval matrix-multiply-eval
         (matrix-multiply '((1 0) (0 1)) '((2 3) (5 -1)))
@@ -220,7 +220,7 @@ A collection of Racket modules implementing numerical methods.
     @racket[A] should be a list of lists, where each sub-list corresponds to a matrix row.
 
     @interaction-eval[#:eval scalar-multiply-eval
-        (require NumeriKet/linear-algebra/scalar-multiply)]
+        (require NumeriKet/linear-algebra/matrix-operations)]
     @examples[
         #:eval scalar-multiply-eval
         (scalar-multiply 2 '((1 0) (0 1)))

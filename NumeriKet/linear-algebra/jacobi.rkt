@@ -1,8 +1,6 @@
 #lang racket/base
 
-(require racket/list NumeriKet/linear-algebra/matrix-multiply
-         NumeriKet/linear-algebra/scalar-multiply
-         NumeriKet/linear-algebra/matrix-add 
+(require racket/list NumeriKet/linear-algebra/matrix-operations
          NumeriKet/linear-algebra/power-iteration)
 
 ; Provide implementation of Jacobi method for solving linear systems

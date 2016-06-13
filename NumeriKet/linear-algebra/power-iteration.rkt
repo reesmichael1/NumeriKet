@@ -4,8 +4,7 @@
 (provide power-iteration)
 
 (require NumeriKet/linear-algebra/norm NumeriKet/linear-algebra/dot-product
-         NumeriKet/linear-algebra/matrix-multiply
-         NumeriKet/linear-algebra/scalar-multiply racket/list)
+         NumeriKet/linear-algebra/matrix-operations racket/list)
 
 ; function: (get-starting-vector n)
 ; Inputs:

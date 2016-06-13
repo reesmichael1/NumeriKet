@@ -3,6 +3,17 @@
 ; for range
 (require racket/list NumeriKet/linear-algebra/dot-product)
 
+; Provide common matrix operations
+(provide matrix-add matrix-multiply scalar-multiply)
+
+; function: (matrix-add A B)
+; Inputs:
+;       * A: the first matrix addend
+;       * B: the second matrix addend
+(define (matrix-add A B) 
+  (let* [(rows (length A))]
+    (map (lambda (rowA rowB) (map (lambda (x y) (+ x y)) rowA rowB)) A B)))
+
 ; Provide implementation of matrix multiplication
 (provide matrix-multiply get-row get-column)
 
@@ -35,3 +46,11 @@
         (dot-product (get-row row A) 
           (get-column column B))) 
           (range columns))) (range rows))))
+
+; function: (scalar-multiply a A)
+; Inputs:
+;       * a: the scalar to multiply the matrix by
+;       * A: the matrix to be scaled
+; Output: the matrix A with all of its elements scaled by a
+(define (scalar-multiply a A)
+    (map (lambda (row) (map (lambda (x) (* a x)) row)) A))

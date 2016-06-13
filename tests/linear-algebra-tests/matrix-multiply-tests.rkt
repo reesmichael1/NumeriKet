@@ -3,7 +3,7 @@
 ; Test implementation of matrix multiplication and helper functions
 
 (require rackunit rackunit/text-ui 
-         "../../NumeriKet/linear-algebra/matrix-multiply.rkt")
+         "../../NumeriKet/linear-algebra/matrix-operations.rkt")
 
 (define matrix-multiply-tests
   (test-suite

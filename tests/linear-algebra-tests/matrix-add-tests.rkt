@@ -3,7 +3,7 @@
 ; Test implementation of matrix-add
 
 (require rackunit rackunit/text-ui 
-         "../../NumeriKet/linear-algebra/matrix-add.rkt")
+         "../../NumeriKet/linear-algebra/matrix-operations.rkt")
 
 (define matrix-add-tests
   (test-suite
