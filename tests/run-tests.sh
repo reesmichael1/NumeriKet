@@ -24,6 +24,8 @@ echo "matrix-add-tests"
 racket $TEST_DIR/linear-algebra-tests/matrix-add-tests.rkt
 echo "matrix-multiply-tests"
 racket $TEST_DIR/linear-algebra-tests/matrix-multiply-tests.rkt
+echo "matrix-subtract-tests"
+racket $TEST_DIR/linear-algebra-tests/matrix-subtract-tests.rkt
 echo "newton-diff-tests"
 racket $TEST_DIR/diff-tests/newton-diff-tests.rkt
 echo "newton-root-tests"

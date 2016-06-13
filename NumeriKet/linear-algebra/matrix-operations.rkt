@@ -4,7 +4,7 @@
 (require racket/list NumeriKet/linear-algebra/dot-product)
 
 ; Provide common matrix operations
-(provide matrix-add matrix-multiply scalar-multiply)
+(provide matrix-add matrix-subtract matrix-multiply scalar-multiply)
 
 ; function: (matrix-add A B)
 ; Inputs:
@@ -54,3 +54,10 @@
 ; Output: the matrix A with all of its elements scaled by a
 (define (scalar-multiply a A)
     (map (lambda (row) (map (lambda (x) (* a x)) row)) A))
+
+; function (matrix-subtract A B)
+; Inputs:
+;       * A: the first matrix
+;       * B: the matrix subtracted from A
+; Output: the difference of A and B
+(define (matrix-subtract A B) (matrix-add A (scalar-multiply -1 B)))

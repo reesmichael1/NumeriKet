@@ -180,6 +180,7 @@ A collection of Racket modules implementing numerical methods.
 
 @(define matrix-add-eval (make-base-eval))
 @(define matrix-multiply-eval (make-base-eval))
+@(define matrix-subtract-eval (make-base-eval))
 @(define scalar-multiply-eval (make-base-eval))
 
 @subsubsection{Matrix Operations}
@@ -212,6 +213,19 @@ A collection of Racket modules implementing numerical methods.
                            (-9 -10 -11 -12) (-13 -14 -15 -16))
                          '((16 15 14 13) (12 11 10 9)
                            (-8 -7 -6 -5) (-4 -3 -2 -1)))]
+}
+
+@defproc[(matrix-subtract [A list?] [B list?]) list?]{
+    Subtract a matrix @racket[B] from a matrix @racket[A].
+
+    @racket[A] and @racket[B] should each be lists of lists, where each element corresponds to a matrix row.
+
+    @interaction-eval[#:eval matrix-subtract-eval
+        (require NumeriKet/linear-algebra/matrix-operations)]
+    @examples[
+        #:eval matrix-subtract-eval
+        (matrix-subtract '((1 0) (0 1)) '((1 0) (0 1)))
+        (matrix-subtract '((1) (2) (3)) '((4) (5) (6)))]
 }
 
 @defproc[(scalar-multiply [a number?] [A list?]) list?]{

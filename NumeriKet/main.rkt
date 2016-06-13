@@ -13,4 +13,4 @@
 (provide newton-sqrt newton-root newton-diff diff five-point euler-method 
          round-to-precision simpson integrate ex ln square-root ln-sqrt
          matrix-multiply dot-product scalar-multiply norm power-iteration
-         matrix-add jacobi)
+         matrix-add matrix-subtract jacobi)
