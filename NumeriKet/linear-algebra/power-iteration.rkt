@@ -3,8 +3,23 @@
 ; Provide power iteration method to find dominant eigenvalue
 (provide power-iteration)
 
-(require NumeriKet/linear-algebra/norm NumeriKet/linear-algebra/dot-product
+; Provide verification function for unit testing
+(provide verify-for-power-iteration)
+
+(require NumeriKet/linear-algebra/norm 
+         NumeriKet/linear-algebra/dot-product
          NumeriKet/linear-algebra/matrix-operations racket/list)
+
+; function: (verify-for-power-iteration A)
+; Inputs:
+;       * A: the matrix to check
+; Output: a boolean, #t if A is a square matrix, #f otherwise
+(define (verify-for-power-iteration A)
+  (let* [(first-length (length (first A)))
+         (row-lengths (map 
+                        (lambda (row) (= (length row) first-length)) A))]
+    (if (not (= (length (remove #f row-lengths)) (length row-lengths))) #f
+      (= (length A) (length (first A))))))
 
 ; function: (get-starting-vector n)
 ; Inputs:
@@ -33,5 +48,8 @@
 ;       * A: the matrix whose dominant eigenvalue will be found
 ;       * n: an optional argument describing how many steps to use
 ; Output: the dominant eigenvalue of A
-(define power-iteration (lambda (A #:n [n 1000])
-  (power-iteration-with-steps A (get-starting-vector (length A)) n)))
+(define power-iteration 
+  (lambda (A #:n [n 1000])
+    (if (verify-for-power-iteration A)
+      (power-iteration-with-steps A (get-starting-vector (length A)) n)))
+      (error "power-iteration: given matrix is not valid"))

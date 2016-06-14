@@ -26,6 +26,19 @@
                   "Correct for four dimensional system")
     (check-exn exn:fail? (lambda () (jacobi '((1 3) (10 10)) '((1) (2))))
                "Gives warning on matrix that will not converge")
+    (check-exn exn:fail? (lambda () (jacobi '((1) (2)) '((1))))
+               "Fails on matrix and vector with different number of rows")))
+
+(define verification-tests
+  (test-suite
+    "verification-tests"
+    (check-true (verify-for-jacobi '((1 2) (1 2)) '((1) (2)))
+                "Verifies valid matrix/vector pair")
+    (check-false (verify-for-jacobi '((1 2) (1 2 3)) '((1) (2)))
+                 "Rejects non-square matrix")
+    (check-false (verify-for-jacobi '((1 2) (1 2)) '((1) (2) (3)))
+                 "Rejects vector with different number of rows than matrix")
     ))
 
 (run-tests jacobi-tests)
+(run-tests verification-tests)

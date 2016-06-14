@@ -17,7 +17,10 @@
                                    '((16 15 14 13) (12 11 10 9)
                                      (-8 -7 -6 -5) (-4 -3 -2 -1)))
                   '((0 4 8 12) (64 68 72 76) 
-                    (-128 -132 -136 -140) (-192 -196 -200 -204)))))
+                    (-128 -132 -136 -140) (-192 -196 -200 -204)))
+    (check-exn exn:fail? (lambda () 
+                           (matrix-multiply '((1) (2)) '((1) (2)))) 
+               "Fails on matrices of incorrect dimensions")))
 
 (define get-row-tests
   (test-suite

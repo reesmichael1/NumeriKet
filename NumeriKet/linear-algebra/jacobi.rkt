@@ -6,6 +6,21 @@
 ; Provide implementation of Jacobi method for solving linear systems
 (provide jacobi)
 
+; Provide verification function for unit testing
+(provide verify-for-jacobi)
+
+; function: (verify-for-jacobi A b)
+; Inputs:
+;       * A: the matrix to check to be square
+;       * b: the vector that should have the same number of rows as A
+; Output: a boolean, #t if the above conditions are met, #f otherwise
+(define (verify-for-jacobi A b)
+  (let* [(first-length (length (first A)))
+         (row-lengths (map 
+                        (lambda (row) (= (length row) first-length)) A))]
+    (if (not (= (length (remove #f row-lengths)) (length row-lengths))) #f
+      (if (not (= (length b) (length A) (length row-lengths))) #f #t))))
+
 ; function: (get-starting-vector n)
 ; Inputs:
 ; 		* n: the dimension of the vector to create

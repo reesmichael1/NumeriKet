@@ -15,6 +15,8 @@
     (check-equal? (matrix-subtract '((1) (2) (3) (4) (5)) 
                                    '((8) (-1) (0) (-3.8) (100)))
                   '((-7) (3) (3) (7.8) (-95)) 
-                  "Works for matrix with more columns than rows")))
+                  "Works for matrix with more columns than rows")
+    (check-exn exn:fail? (lambda () (matrix-subtract '((1 2)) '((1) (2))))
+               "Fails for matrices of different size")))
 
 (run-tests matrix-subtract-tests)

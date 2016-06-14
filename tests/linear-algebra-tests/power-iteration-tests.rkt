@@ -18,4 +18,17 @@
     (check-equal? (power-iteration '((1 0) (0 -1))) 0.0
                   "Matrix with no dominant eigenvalue is correct")))
 
+(define verification-tests
+  (test-suite
+    "verification-tests"
+    (check-true (verify-for-power-iteration '((1 2) (2 1)))
+                "Accepts square matrix")
+    (check-false (verify-for-power-iteration '((1 2 3) (1 2 3)))
+                 "Rejects matrix with more columns than rows")
+    (check-false (verify-for-power-iteration '((1 2) (1 2) (1 2)))
+                 "Rejects matrix with more rows than columns")
+    (check-false (verify-for-power-iteration '((1 2) (1)))
+                 "Rejects malformed matrix")))
+
 (run-tests power-iteration-tests)
+(run-tests verification-tests)
