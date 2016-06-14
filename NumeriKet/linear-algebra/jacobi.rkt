@@ -101,7 +101,9 @@
 ;       * warn-converge: boolean to show warning on non-converging matrix
 ; Output: x, the unknown vector such that Ax = b
 (define (jacobi A b #:n [n 1000] #:warn-converge [warn-converge #t]) 
+  (if (verify-for-jacobi A b)
   (if (and warn-converge (not (check-for-convergence A)))
     (error "jacobi: matrix will (probably) not converge")
     (map (lambda (x) (list (exact->inexact (first x)))) 
-         (jacobi-with-iterations A b (get-starting-vector (length A)) n))))
+         (jacobi-with-iterations A b (get-starting-vector (length A)) n)))
+    (error "jacobi: given matrix and vector are not valid")))

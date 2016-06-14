@@ -51,5 +51,5 @@
 (define power-iteration 
   (lambda (A #:n [n 1000])
     (if (verify-for-power-iteration A)
-      (power-iteration-with-steps A (get-starting-vector (length A)) n)))
-      (error "power-iteration: given matrix is not valid"))
+      (power-iteration-with-steps A (get-starting-vector (length A)) n)
+      (error "power-iteration: given matrix is not valid"))))
