@@ -4,7 +4,7 @@
 
 (require rackunit rackunit/text-ui "../NumeriKet/util.rkt")
 
-(define util-tests
+(define round-to-precision-tests
     (test-suite
         "Test round-to-precision"
         (check-equal? (round-to-precision 10 3) 10 "Rounds integers")
@@ -16,4 +16,4 @@
         (check-equal? (round-to-precision -234.871034 50) -234.871034 
                       "Rounds more decimals than are in input")))
 
-(run-tests util-tests)
+(run-tests round-to-precision-tests)
