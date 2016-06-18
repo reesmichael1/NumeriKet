@@ -128,6 +128,7 @@ A collection of Racket modules implementing numerical methods.
 }
 
 @(define dot-product-eval (make-base-eval))
+@(define identity-eval (make-base-eval))
 @(define norm-eval (make-base-eval))
 
 @subsection{Linear Algebra}
@@ -144,6 +145,17 @@ A collection of Racket modules implementing numerical methods.
         (dot-product '(1) '(2))
         (dot-product '(1 2 3) '(4 5 6))
         (dot-product '(1 -1) '(1 1))]
+}
+
+@defproc[(identity-matrix [n integer?]) list?]{
+    Create an @racket[n]x@racket[n] identity matrix.
+
+    @interaction-eval[#:eval identity-eval
+        (require NumeriKet/linear-algebra/identity-matrix)]
+    @examples[
+        #:eval identity-eval
+        (identity-matrix 2)
+        (identity-matrix 4)]
 }
 
 @defproc[(norm [v list?]) number?]{

@@ -7,10 +7,11 @@
          NumeriKet/ex/ex NumeriKet/ex/ln NumeriKet/root/square-root
          NumeriKet/root/ln-sqrt NumeriKet/linear-algebra/matrix-operations
          NumeriKet/linear-algebra/dot-product NumeriKet/linear-algebra/norm
-         NumeriKet/linear-algebra/jacobi
+         NumeriKet/linear-algebra/jacobi 
+         NumeriKet/linear-algebra/identity-matrix
          NumeriKet/linear-algebra/power-iteration)
 
 (provide newton-sqrt newton-root newton-diff diff five-point euler-method 
          round-to-precision simpson integrate ex ln square-root ln-sqrt
          matrix-multiply dot-product scalar-multiply norm power-iteration
-         matrix-add matrix-subtract jacobi)
+         matrix-add matrix-subtract jacobi identity-matrix)

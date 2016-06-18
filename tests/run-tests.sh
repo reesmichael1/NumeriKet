@@ -14,6 +14,8 @@ echo "ex-tests"
 racket $TEST_DIR/ex-tests/ex-tests.rkt
 echo "five-point-tests"
 racket $TEST_DIR/diff-tests/five-point-tests.rkt
+echo "identity-matrix-tests"
+racket $TEST_DIR/linear-algebra-tests/identity-matrix-tests.rkt
 echo "jacobi-tests"
 racket $TEST_DIR/linear-algebra-tests/jacobi-tests.rkt
 echo "ln-sqrt-tests"
