@@ -129,6 +129,7 @@ A collection of Racket modules implementing numerical methods.
 
 @(define dot-product-eval (make-base-eval))
 @(define identity-eval (make-base-eval))
+@(define matrix-inverse-eval (make-base-eval))
 @(define norm-eval (make-base-eval))
 
 @subsection{Linear Algebra}
@@ -156,6 +157,19 @@ A collection of Racket modules implementing numerical methods.
         #:eval identity-eval
         (identity-matrix 2)
         (identity-matrix 4)]
+}
+
+@defproc[(matrix-inverse [A list?] [#:n n number? 5]) list?]{
+    Calculate the inverse of the matrix @racket[A].
+
+    This is implemented through the algorithm described by @hyperlink["http://www.hindawi.com/journals/ijmms/2012/134653/" "Soleymani in 2012"]. Note that this implementation is very slow, and is infeasible for large matrices. A faster algorithm will be implemented soon.
+    
+    @interaction-eval[#:eval matrix-inverse-eval
+        (require NumeriKet/linear-algebra/matrix-inverse)]
+    @examples[
+        #:eval matrix-inverse-eval
+        (matrix-inverse '((1 0) (0 1)))
+        (matrix-inverse '((2 0 0) (0 3 2) (0 0 -1)))]
 }
 
 @defproc[(norm [v list?]) number?]{
