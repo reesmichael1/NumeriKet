@@ -291,6 +291,22 @@ A collection of Racket modules implementing numerical methods.
         (jacobi '((1 3) (10 10)) '((1) (1)))]
 }
 
+@(define era-sieve-eval (make-base-eval))
+
+@subsection{Prime Number Generation}
+@defproc[(era-sieve [N number?]) list?]{
+    Generate a list of the first @racket[N] primes.
+
+    This is implemented through the @hyperlink["http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" "Sieve of Eratosthenes"].
+    
+    @interaction-eval[#:eval era-sieve-eval 
+        (require NumeriKet/prime/era-sieve racket/list)]
+    @examples[
+        #:eval era-sieve-eval
+        (era-sieve 10)
+        (last (era-sieve 14892))]
+}
+
 @(define square-root-eval (make-base-eval))
 @(define ln-sqrt-eval (make-base-eval))
 @(define newton-root-eval (make-base-eval))
