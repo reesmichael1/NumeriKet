@@ -304,7 +304,8 @@ A collection of Racket modules implementing numerical methods.
     @examples[
         #:eval era-sieve-eval
         (era-sieve 10)
-        (last (era-sieve 14892))]
+        (last (era-sieve 14892))
+        (take-right (era-sieve 9382) 4)]
 }
 
 @(define square-root-eval (make-base-eval))
