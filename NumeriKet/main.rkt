@@ -9,9 +9,11 @@
          NumeriKet/linear-algebra/dot-product NumeriKet/linear-algebra/norm
          NumeriKet/linear-algebra/jacobi NumeriKet/prime/era-sieve
          NumeriKet/linear-algebra/identity-matrix
-         NumeriKet/linear-algebra/power-iteration)
+         NumeriKet/linear-algebra/power-iteration
+         NumeriKet/linear-algebra/matrix-inverse)
 
 (provide newton-sqrt newton-root newton-diff diff five-point euler-method 
          round-to-precision simpson integrate ex ln square-root ln-sqrt
          matrix-multiply dot-product scalar-multiply norm power-iteration
-         matrix-add matrix-subtract jacobi identity-matrix era-sieve)
+         matrix-add matrix-subtract jacobi identity-matrix era-sieve
+         matrix-inverse)
